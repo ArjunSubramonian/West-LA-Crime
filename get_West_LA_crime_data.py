@@ -26,7 +26,7 @@ def get_types_dates_counts():
     client = Socrata("data.lacity.org", None)
 
     for offset in range(0, 2000000, 50000):
-        print(offset)
+        print('Have retrieved ' + str(offset) + ' data points in total.')
 
         # Results, returned as JSON from API, converted to Python list of dictionaries by sodapy
         results = client.get("7fvc-faax", limit = 50000, offset = offset)
@@ -83,7 +83,7 @@ def get_types_ages():
     client = Socrata("data.lacity.org", None)
 
     for offset in range(0, 2000000, 50000):
-        print(offset)
+        print('Have retrieved ' + str(offset) + ' data points in total.')
 
         # Results, returned as JSON from API, converted to Python list of dictionaries by sodapy
         results = client.get("7fvc-faax", limit = 50000, offset = offset)
@@ -243,7 +243,7 @@ def get_features():
     counter = 0
 
     for offset in range(0, 2000000, 50000):
-        print(offset)
+        print('Have retrieved ' + str(offset) + ' data points in total.')
 
         # Results, returned as JSON from API, converted to Python list of dictionaries by sodapy
         results = client.get("7fvc-faax", limit = 50000, offset = offset)
