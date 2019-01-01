@@ -14,8 +14,6 @@ print('Please wait while the program runs!')
 def get_model(input_shape, NUM_CLASSES):
 
     X_input = Input((input_shape,))
-    # Input normalization
-    X = BatchNormalization()(X_input)
     
     # First hidden layer(s)
     X = Dense(units = 16, activation = 'relu')(X)
