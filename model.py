@@ -51,15 +51,15 @@ def get_model(input_shape, NUM_CLASSES):
     return model
 
 # Only include the first time running, to collect the training data from the online dataset
-gcd.get_features()
+# gcd.get_features()
 
 train_dataset = h5py.File('train.h5', "r")
 X_train = np.array(train_dataset["data_X"][:]) # your train set features
 Y_train = np.array(train_dataset["data_Y"][:]) # your train set labels
 Y_train = Y_train.reshape((1, Y_train.shape[0]))
 
-# Normalize X_train (remember: one feature per column!)
-X_train = (X_train - np.mean(X_train, axis = 0)) / np.std(X_train, axis = 0)
+# Normalize X_train (remember: one feature per row!)
+X_train = (X_train - np.mean(X_train, axis = 1, keepdims = True)) / np.std(X_train, axis = 1, keepdims = True)
 Y_train = convert_to_one_hot(Y_train, NUM_CLASSES)
 print(X_train.shape, Y_train.shape)
 
